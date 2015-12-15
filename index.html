@@ -4,7 +4,38 @@
     <title>NopeGenerator by aguss787</title>
   </head>
   <body>
-    Nope
-    Nope
+    <div id="nope" align="center">
+
+    </div>
+
+    <script>
+      document.getElementById('nope').style.fontSize = "40px";
+      var timer = setInterval(addNope, 500);
+
+      function generateNope(){
+        var str = '';
+        var nope = 'Nope';
+
+        var x = Math.floor(Math.random() * 10);
+        //var x = 10;
+
+        for(var i = 0 ; i < 10 ; i ++){
+          str += "<br>";
+          for(var j in nope){
+            str += '<font size="' + (x*2) % 7 + '">' + nope.charAt(j) + '</font>';
+
+            x++;
+          }
+        }
+
+
+        return str;
+      }
+
+      function addNope(){
+        var div = document.getElementById('nope');
+        div.innerHTML = generateNope();
+      }
+    </script>
   </body>
 </html>
